@@ -1,7 +1,8 @@
 <?php
 
     include("../controller/login.php");
-
+   
+    //echo $_SESSION["usr"]
 ?>
 <body>
     <form method="POST" action="">

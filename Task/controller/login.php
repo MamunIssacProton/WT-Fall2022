@@ -1,5 +1,17 @@
 <?php
 $errorCount=0;
+$haveCookie=false;
+$isValid=false;
+session_start();
+
+
+if(isset($_SESSION['usr']))
+{
+    
+     header('Location: ../view/dashboard.php');
+  
+}
+else{
 if(isset($_REQUEST["login"]))
 {
 
@@ -29,13 +41,14 @@ if(isset($_REQUEST["login"]))
               $users[$user]=array($usr);
               if($user==$_REQUEST["username"]&&$usr->Password==$_REQUEST["password"])
               {
-                
-                echo $_REQUEST["username"]."<b>welcome to the dashboard";
-                return;
+               // setcookie('user',$_REQUEST['username'],time()+140400);
+                //time in mins
+                $_SESSION["usr"]=$_REQUEST['username'];
+                header('Location: ../view/dashboard.php');
+               return;
               }
               
            }
-
 
         }
         else{
@@ -49,7 +62,6 @@ if(isset($_REQUEST["login"]))
         echo "<br>the database file might be deleted, plase try to register with new one and try again later";
     }
 }
-
-
+}
 
 ?>
