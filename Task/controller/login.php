@@ -1,9 +1,13 @@
 <?php
+require('../model/db.php');
 $errorCount=0;
 $haveCookie=false;
 $isValid=false;
+$dirBalanceSheet='balanceSheets';
+$dirActiveDirectory='activeDirectory';
 session_start();
-
+$db = new db();
+$conn = $db->Connect();
 
 if(isset($_SESSION['usr']))
 {
@@ -14,46 +18,75 @@ if(isset($_SESSION['usr']))
 else{
 if(isset($_REQUEST["login"]))
 {
-
-    if(file_exists("../data/users.json"))
+  if(isset($_REQUEST['username'])&& $_REQUEST['username']!='' &&
+     isset($_REQUEST['password']) && $_REQUEST['password']!=''&& strlen($_REQUEST['password'])>=3
+    )
     {
 
-        if(isset($_REQUEST["username"])|| isset($_REQUEST["password"]))
+    
+  $username=$_REQUEST['username'];
+  $password=$_REQUEST['password'];
+    if($db->CheckTableExist($conn,$dirActiveDirectory)&&$db->CheckTableExist($conn,$dirBalanceSheet))
+    {
+        if($db->AuthUser($conn,$username,$password))
         {
-            if($_REQUEST["username"]=="")
+           $_SESSION['usr']=$username;
+          $sheet = $db->GetBalanceSheetByUserID($conn, $username);
+          if($sheet->num_rows==1)
+          {
+            foreach($sheet as $sh=>$s)
             {
-                echo "<br> Username is required";
-                $errorCount++;
+             
+              $_SESSION['balance']=$s['availableBalance'];
+              $_SESSION['limit']=$s['currentLimit'];
+              $_SESSION['totalLimit']=$s['totalLimit'];
+              $_SESSION['due']=$s['due'];
             }
-            if($_REQUEST["password"]=="")
-            {
-                echo "<br> Password is required";
-                $errorCount++;
-            }
-            if($_REQUEST["password"]!=="" && strlen($_REQUEST["password"])<5)
-            {
-                echo "<br>password length is invalid, please use your correct password, is must require min of 5 chars";
-            }
-            $data=json_decode(file_get_contents("../data/users.json"));
-          
-            foreach ($data as $user=>$usr)
-            {
-              $users[$user]=array($usr);
-              if($user==$_REQUEST["username"]&&$usr->Password==$_REQUEST["password"])
-              {
-               // setcookie('user',$_REQUEST['username'],time()+140400);
-                //time in mins
-                $_SESSION["usr"]=$_REQUEST['username'];
-                header('Location: ../view/dashboard.php');
-               return;
-              }
-              
-           }
-
+            header('Location: ../view/dashboard.php');
+          }
         }
+      
+        // $data=json_decode(file_get_contents($dirActiveDirectory),true);
+        // if(array_key_exists($username,$data))
+        // {
+        //   //  echo $data['01969897555']->password;
+          
+        //     $user=$data[$username];
+          
+        //    if($user['password']==$password)
+        //    {
+            
+        //      if(file_exists($dirBalanceSheet))
+        //      {  
+        //         $balanceSheet=json_decode(file_get_contents($dirBalanceSheet),true);
+        //         $userSheet= $balanceSheet[$_SESSION['usr']];
+        //         $balance=$userSheet['availableBalance'];
+              
+        //         $limit=$userSheet['limit'];
+        //         $_SESSION['balance']=$balance;
+        //         $_SESSION['limit']=$limit;
+        //         $_SESSION['totalLimit']=$userSheet['totalLimit'];
+        //         $_SESSION['due']=$userSheet['due'];
+        //         header('Location: ../view/dashboard.php');
+        //      }
+        //      else{
+        //          echo '<br> the database has been removed or deleted, please try to create new agent';
+        //      }
+              
+        //    }
+        //    else{
+        //     echo 'your password is incorrect, please try with correct credentials';
+        //    }
+
+     
         else{
+            echo '<br><b>your username does not exist, please try with correct credentials or reset your passowrd';
+        
+        }
+      }
+         else{
            
-              echo "<br> please try with valid username and password with valid legth<br>";
+         echo "<br> please try with valid username and password with valid legth<br>";
              
             
         }

@@ -1,0 +1,24 @@
+{
+    "01969798555": {
+        "firstName": "Abdullah",
+        "lastName": "Al Mamun",
+        "dob": "1998-12-12",
+        "permanentAddress": "Road#12,House#12,Nikunja-2,Dhaka 1229",
+        "currentAddress": "asd",
+        "primaryContact": "01969798555",
+        "division": "dhaja",
+        "district": "dhaka",
+        "primaryEmail": "mamunaiub@hotmail.com"
+    },
+    "01969897558": {
+        "firstName": "numb",
+        "lastName": "jka",
+        "dob": "1998-12-12",
+        "permanentAddress": "Road#14,House#2,Nikunja-2,Dhaka 1229",
+        "currentAddress": "arz",
+        "primaryContact": "01969798555",
+        "division": "dhaka",
+        "district": "dhaka",
+        "primaryEmail": "mamunaiub@hotmail.com"
+    }
+}

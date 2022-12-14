@@ -1,5 +1,6 @@
-<?php
-   
-   include("../controller/dashboard.php");
+<?php 
+ require('../view/navhead.php');
+  
 ?>
-<a href="../controller/logout.php">logout</a>
+
+

@@ -3,7 +3,10 @@
     include("../controller/registration.php");
 
 ?>
-<body>
+<head>
+<link rel='stylesheet' type="text/css" href="../css/task.css"/>
+</head>
+<body class="body">
     <form method="POST" action="" enctype="multipart/form-data">
         <table>
         <tr>

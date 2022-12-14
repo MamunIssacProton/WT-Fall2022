@@ -1,35 +1,20 @@
-<?php
-
-    include("../controller/login.php");
-   
-    //echo $_SESSION["usr"]
+<?php  include("../controller/login.php");
 ?>
-<body>
-    <form method="POST" action="">
-        <table>
-        <tr>
-            <td>
-                <label>Username</label>
-            </td>
-            <td>
-                 <input name="username"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label>Password</label>
-            </td>
-            <td>
-                 <input name="password"/>
-            </td>
-        </tr>
-        
-        </table>
-  
-        <tr>
-            <td>
-                <input type="submit" name="login"></input>
-            </td>
-        </tr>
-    </form>
-</body>
+<head>
+    <link type="text/css" rel='stylesheet' href='../css/styles.css'/>
+
+</head>
+  <form method="POST" action="">
+      <div class="container">
+     <div class="brand-logo"></div>
+  <div class="brand-title">bKash</div>
+  <div class="inputs">
+    <label>Phone Number</label>
+    <input name="username"  placeholder="01xx-xxxx-xxx" />
+    <label>PASSWORD</label>
+    <input type="password" name="password" placeholder="your password" />
+    <button type="submit" name="login">LOGIN</button>
+    <a href="../view/basicInfo.php">Register as a Agent</a>
+  </div>
+ 
+  </form>

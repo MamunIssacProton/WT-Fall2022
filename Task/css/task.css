@@ -1,0 +1,76 @@
+.body{
+    background-color: rgb(195, 215, 215);
+    height: 100%;
+    width: 100%;;
+}
+.header{
+    background-color: aliceblue;
+    color: blueviolet;
+    font-size: large;
+    align-content: center;
+    height: 5rem;
+   
+}
+.headLabel{
+    margin-left: 40rem;
+    font-size: 30px;
+}
+.headSubTitle{
+    margin-left: 45rem;
+    font-size: 15px;
+    margin-top: 5rem;
+}
+.nav{
+    background-color: cadetblue;
+    height: 3rem;
+  
+  color: white;
+}
+
+.border{
+    position: relative;
+  width: 400px;
+  height: 200px;
+  border-left: 1rem solid #0b88e8;
+}
+.Title{
+    font-size: 30px;
+    height: 4rem;
+    background-color: rgb(165, 157, 245);
+    width: 98.7%;
+    
+}
+.button{
+    background-color: darkslateblue;
+    color: white;
+    border-radius: 13px;
+    width: 9rem;
+    height: 3rem;
+    align-content: center;
+}
+.frm{
+    background-color: azure;
+}
+input{
+    background-color: whitesmoke;
+    color: black;
+    height: 1.7rem;
+    width: 10rem;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    padding: 8px;
+    color: rgb(255, 255, 255);
+   
+  }
