@@ -1,17 +1,12 @@
 <?php
 include('../controller/cssTest.php');
 ?>
-
-    <head>
-  
-    </head>
-    
 <body>
     
    <form method="POST"  action=""  onsubmit="return checkValidity()" >
    <table>
        <tr>
-           <td>Fist Name</td>
+           <td>First  Name</td>
            <td>
                <input name="firstName" id="firstName"/>
            </td>
@@ -25,7 +20,7 @@ include('../controller/cssTest.php');
        <tr>
            <td>Email</td>
            <td>
-               <input  name='email'id="email"/>
+               <input  name='email' id="email"/>
            </td>
        </tr>
        <tr>

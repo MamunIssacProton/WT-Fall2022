@@ -5,7 +5,6 @@ CREATE TABLE `bkash`.`agentsData` (`userID` VARCHAR(11) NOT NULL , `agentID` INT
 
 CREATE TABLE `bkash`.`balanceSheets` (`userID` VARCHAR(11) NOT NULL , `availableBalance` INT(6) NOT NULL , `currentLimit` INT(6) NOT NULL , `totalLimit` INT(6) NOT NULL , `due` INT(6) NOT NULL , PRIMARY KEY (`userID`(11))) ENGINE = InnoDB;
 
-CREATE TABLE `bkash`.`transactionHistory` (`id` INT(6) NOT NULL AUTO_INCREMENT , `sender` VARCHAR(11) NOT NULL , `reciever` VARCHAR(11) NOT NULL , `amount` VARCHAR(6) NOT NULL , `time` VARCHAR NULL DEFAULT CURRENT_TIMESTAMP , UNIQUE `id` (`id`(6))) ENGINE = InnoDB;
 
 CREATE TABLE `bkash`.`transactionHistory` (`id` VARCHAR(6) NOT NULL , `sender` VARCHAR(11) NOT NULL , `reciever` VARCHAR(11) NOT NULL , `amount` VARCHAR(6) NOT NULL , `time` VARCHAR(120) NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 

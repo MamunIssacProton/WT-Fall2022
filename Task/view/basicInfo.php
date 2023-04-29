@@ -3,6 +3,7 @@
 ?>
 <head>
 <link rel='stylesheet' type="text/css" href="../css/task.css"/>
+
 </head>
 <body>
 <div class="body">
@@ -26,12 +27,12 @@
     <label> Basic Info</label>
 </div>
 <div class="frm">
-    <form method="POST" action="" onsubmit="return checkValidity()">
+    <form method="POST" action="" onsubmit="return cv()">
     <table>
         <tr>
             <td>First Name</td>
             <td>
-                <input id="fistName" name="firstName"/>
+                <input id="firstName" name="firstName"/>
             </td>
         </tr>
         <tr>
@@ -43,14 +44,14 @@
         <tr>
             <td>Date of Birth</td>
             <td>
-                <input type="date" min='01-01-1970' name='dob'/>
+                <input type="date" min='01-01-1970' name='dob' id='dob'/>
             </td>
         </tr>
        
         <tr>
             <td>Primary Contact</td>
             <td>
-                <input name='primaryContact' maxlength="11"/>
+                <input name='primaryContact' id='primaryContact' maxlength="11"/>
             </td>
         </tr>
         <tr>
@@ -71,7 +72,7 @@
 
 </div>
 
-   
 <script src="../script/custom.js"></script>
+
 
 </body>

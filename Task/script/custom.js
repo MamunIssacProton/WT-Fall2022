@@ -1,6 +1,3 @@
-function bal() {
-    console.log("bla");
-}
 
 function checkValidity()
 {
@@ -21,7 +18,12 @@ function checkValidity()
     console.log(firstName, lastName , mail, password, tier);
 
 }
+function cv(){
 
+    console.log('cv');
+    alert('hey');
+    return false;
+}
 function  getTier(){
     let element = document.getElementsByName('tier');
     for (i = 0; i < element.length; i++)
